@@ -383,16 +383,15 @@ export default function PartyDetailScreen() {
                       {entry.date} · {entry.mode || 'Cash/UPI'}
                     </Text>
 
-                    {/* Rounded Pill Borderless Edit Button with Ample Gap */}
+                    {/* Clean & Prominent Simple Edit Icon Button */}
                     <TouchableOpacity
                       onPress={() => handleOpenTransaction(entry.type, entry)}
-                      style={[styles.editEntryBtn, { backgroundColor: colors.bgCard }]}
-                      activeOpacity={0.7}
+                      style={[styles.editIconBtn, { backgroundColor: colors.bgSecondary }]}
+                      activeOpacity={0.6}
+                      hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+                      accessibilityLabel="Edit Entry"
                     >
-                      <Edit2 size={12} color={colors.textPrimary} />
-                      <Text style={[styles.editEntryBtnText, { color: colors.textPrimary }]}>
-                        Edit Entry
-                      </Text>
+                      <Edit2 size={16} color={colors.textPrimary} strokeWidth={2} />
                     </TouchableOpacity>
                   </View>
 
@@ -648,20 +647,14 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.regular,
     marginTop: 4,
   },
-  /* Rounded Pill Borderless Edit Button with Ample Gap */
-  editEntryBtn: {
-    flexDirection: 'row',
+  /* Clean & Prominent Simple Edit Icon Button */
+  editIconBtn: {
+    width: 32,
+    height: 32,
+    borderRadius: 8,
     alignItems: 'center',
-    gap: 5,
-    alignSelf: 'flex-start',
-    paddingVertical: 6,
-    paddingHorizontal: 14,
-    borderRadius: 999,
-    marginTop: 12,
-  },
-  editEntryBtnText: {
-    fontSize: 11,
-    fontFamily: FONTS.semiBold,
+    justifyContent: 'center',
+    marginTop: 8,
   },
   entryRightCol: {
     alignItems: 'flex-end',

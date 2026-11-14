@@ -28,9 +28,11 @@ export interface LedgerEntry {
   type: 'gave' | 'got'; // gave = debit/cash out, got = credit/cash in
   date: string;
   note: string;
-  mode: 'Cash' | 'UPI Transfer' | 'Bank Transfer';
+  mode: 'Cash' | 'UPI Transfer' | 'Bank Transfer' | string;
   verified: boolean;
   billPhoto?: string;
+  utr?: string;
+  bankDetails?: string;
 }
 
 export interface CashbookEntry {

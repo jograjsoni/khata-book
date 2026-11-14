@@ -555,15 +555,9 @@ class PermissionService {
     }
   }
 
-  async triggerVibration(type: 'light' | 'medium' | 'heavy' | 'success' | 'warning' | 'error' = 'medium') {
-    try {
-      if (type === 'light') await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-      else if (type === 'heavy') await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
-      else if (type === 'success') await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-      else if (type === 'warning') await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
-      else if (type === 'error') await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-      else await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    } catch {}
+  async triggerVibration(_type: 'light' | 'medium' | 'heavy' | 'success' | 'warning' | 'error' = 'medium') {
+    // Haptics completely disabled per user preference
+    return;
   }
 
   async getNetworkDetails(): Promise<NetInfoState> {

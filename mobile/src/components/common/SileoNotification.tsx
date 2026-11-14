@@ -85,19 +85,6 @@ export function SileoNotification() {
 
   useEffect(() => {
     if (visible) {
-      // Trigger haptic feedback
-      try {
-        if (Platform.OS !== 'web') {
-          if (type === 'error') {
-            Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-          } else if (type === 'warning') {
-            Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
-          } else {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-          }
-        }
-      } catch {}
-
       // Sileo Spring entrance physics
       Animated.parallel([
         Animated.spring(scaleAnim, {

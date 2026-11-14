@@ -17,7 +17,7 @@ function getApiBaseUrl(): string {
     return 'http://localhost:4000';
   }
   // Robust remote Cloudflare Tunnel for real devices across any Wi-Fi or cellular network
-  return 'https://translated-stage-arizona-respondent.trycloudflare.com';
+  return 'https://triangle-processed-stuff-qui.trycloudflare.com';
 }
 
 const BASE_URL = getApiBaseUrl();
