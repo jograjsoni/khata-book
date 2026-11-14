@@ -1,0 +1,54 @@
+# Root Git Ignore for Khata Project
+
+# Binaries & Large executables
+cloudflared.exe
+*.exe
+*.dll
+*.apk
+*.aab
+*.zip
+*.tar.gz
+
+# Environment and secrets
+.env
+*.env
+.env.*
+
+# Logs & Temporary debug files
+*.log
+logs/
+
+# Build and extraction artifacts
+extracted_design_new/
+new_extracted_v2/
+
+# Dev & Migration scratch scripts
+build_apk.bat
+check_*.js
+clean_*.js
+compile_*.js
+copy_*.js
+create_*.py
+design_summary.json
+dump_*.js
+generate_*.js
+inspect*.js
+inspect*.py
+parse_*.js
+patch_*.py
+polish_*.py
+print_*.js
+rebuild_*.py
+scratch_*.py
+setup_*.js
+test_resolve*.js
+update_*.py
+upload_*.js
+wire_*.py
+
+# Dependencies
+node_modules/
+
+# OS generated files
+.DS_Store
+Thumbs.db

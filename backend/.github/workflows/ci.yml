@@ -1,0 +1,62 @@
+name: Khata Backend CI
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build TypeScript
+        run: npm run build
+
+      - name: Start Test Server & Run Deep Verification
+        env:
+          PORT: 4000
+          NODE_ENV: test
+          JWT_SECRET: ci_test_jwt_secret_key_super_secure_32_characters_long
+          CORS_ORIGIN: "*"
+        run: |
+          node dist/server.js &
+          SERVER_PID=$!
+          echo "Server running with PID $SERVER_PID"
+          
+          # Wait for server to become healthy
+          SERVER_READY=false
+          for i in {1..30}; do
+            if curl -s http://localhost:4000/api/health | grep -q "ok"; then
+              echo "Backend server is healthy!"
+              SERVER_READY=true
+              break
+            fi
+            sleep 1
+          done
+
+          if [ "$SERVER_READY" = false ]; then
+            echo "Error: Backend server failed to respond healthy within 30s"
+            kill $SERVER_PID 2>/dev/null || true
+            exit 1
+          fi
+
+          # Execute full test suite
+          node test_api.js
+          node test_security.js
+          node test_deep_verification.js
+
+          kill $SERVER_PID

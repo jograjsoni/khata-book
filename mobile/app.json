@@ -1,0 +1,132 @@
+{
+  "expo": {
+    "name": "Khata",
+    "slug": "khata-app-v58",
+    "version": "1.0.0",
+    "sdkVersion": "58.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "khata",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      "expo-secure-store",
+      "expo-asset",
+      [
+        "expo-contacts",
+        {
+          "contactsPermission": "Allow Khata to access your contacts to easily add customers and suppliers."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Khata to access your camera to take photos of bills, receipts and documents.",
+          "microphonePermission": "Allow Khata to record audio for voice notes and reminders."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Khata to use your location for geotagged transactions and nearest store search.",
+          "locationWhenInUsePermission": "Allow Khata to use your location for geotagged transactions and nearest store search."
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Allow Khata to use biometric authentication for secure App Lock."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#16a34a"
+        }
+      ]
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.khata.ledger",
+      "infoPlist": {
+        "CADisableMinimumFrameDurationOnPhone": true,
+        "NSContactsUsageDescription": "Allow Khata to access your phone contacts to add customers and suppliers.",
+        "NSCameraUsageDescription": "Allow Khata to use camera to capture bills, receipts and transaction proofs.",
+        "NSMicrophoneUsageDescription": "Allow Khata to record voice transaction notes.",
+        "NSLocationWhenInUseUsageDescription": "Allow Khata to tag transaction and customer locations.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Allow Khata to tag transaction and customer locations.",
+        "NSFaceIDUsageDescription": "Allow Khata to use Face ID for app security and vault unlock.",
+        "NSBluetoothAlwaysUsageDescription": "Allow Khata to connect to thermal receipt printers and POS devices."
+      }
+    },
+    "android": {
+      "package": "com.khata.ledger",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "ACCESS_WIFI_STATE",
+        "CHANGE_WIFI_STATE",
+        "CHANGE_WIFI_MULTICAST_STATE",
+        "NEARBY_WIFI_DEVICES",
+        "CAMERA",
+        "RECORD_AUDIO",
+        "READ_CONTACTS",
+        "WRITE_CONTACTS",
+        "GET_ACCOUNTS",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_LOCATION",
+        "FOREGROUND_SERVICE_DATA_SYNC",
+        "POST_NOTIFICATIONS",
+        "READ_PHONE_STATE",
+        "READ_PHONE_NUMBERS",
+        "CALL_PHONE",
+        "READ_SMS",
+        "RECEIVE_SMS",
+        "SEND_SMS",
+        "BLUETOOTH",
+        "BLUETOOTH_ADMIN",
+        "BLUETOOTH_CONNECT",
+        "BLUETOOTH_SCAN",
+        "BLUETOOTH_ADVERTISE",
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT",
+        "VIBRATE",
+        "WAKE_LOCK",
+        "DOWNLOAD_WITHOUT_NOTIFICATION",
+        "REORDER_TASKS",
+        "com.google.android.gms.permission.AD_ID",
+        "com.google.android.providers.gsf.permission.READ_GSERVICES",
+        "com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE",
+        "com.android.vending.CHECK_LICENSE",
+        "android.permission.ACCESS_ADSERVICES_TOPICS",
+        "android.permission.ACCESS_ADSERVICES_ATTRIBUTION",
+        "android.permission.ACCESS_ADSERVICES_CUSTOM_AUDIENCE"
+      ],
+      "allowBackup": false,
+      "googleServicesFile": "./google-services.json"
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      }
+    }
+  }
+}

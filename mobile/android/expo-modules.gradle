@@ -1,0 +1,51 @@
+// Auto-generated Expo modules configuration
+include ':expo-dom-webview'
+project(':expo-dom-webview').projectDir = new File('D:/khata-app/mobile/node_modules/@expo/dom-webview/android')
+include ':expo-log-box'
+project(':expo-log-box').projectDir = new File('D:/khata-app/mobile/node_modules/@expo/log-box/android')
+include ':expo'
+project(':expo').projectDir = new File('D:/khata-app/mobile/node_modules/expo/android')
+include ':expo-asset'
+project(':expo-asset').projectDir = new File('D:/khata-app/mobile/node_modules/expo-asset/android')
+include ':expo-blur'
+project(':expo-blur').projectDir = new File('D:/khata-app/mobile/node_modules/expo-blur/android')
+include ':expo-constants'
+project(':expo-constants').projectDir = new File('D:/khata-app/mobile/node_modules/expo-constants/android')
+include ':expo-contacts'
+project(':expo-contacts').projectDir = new File('D:/khata-app/mobile/node_modules/expo-contacts/android')
+include ':expo-crypto'
+project(':expo-crypto').projectDir = new File('D:/khata-app/mobile/node_modules/expo-crypto/android')
+include ':expo-file-system'
+project(':expo-file-system').projectDir = new File('D:/khata-app/mobile/node_modules/expo-file-system/android')
+include ':expo-font'
+project(':expo-font').projectDir = new File('D:/khata-app/mobile/node_modules/expo-font/android')
+include ':expo-haptics'
+project(':expo-haptics').projectDir = new File('D:/khata-app/mobile/node_modules/expo-haptics/android')
+include ':expo-image-loader'
+project(':expo-image-loader').projectDir = new File('D:/khata-app/mobile/node_modules/expo-image-loader/android')
+include ':expo-image-picker'
+project(':expo-image-picker').projectDir = new File('D:/khata-app/mobile/node_modules/expo-image-picker/android')
+include ':expo-keep-awake'
+project(':expo-keep-awake').projectDir = new File('D:/khata-app/mobile/node_modules/expo-keep-awake/android')
+include ':expo-linear-gradient'
+project(':expo-linear-gradient').projectDir = new File('D:/khata-app/mobile/node_modules/expo-linear-gradient/android')
+include ':expo-linking'
+project(':expo-linking').projectDir = new File('D:/khata-app/mobile/node_modules/expo-linking/android')
+include ':expo-local-authentication'
+project(':expo-local-authentication').projectDir = new File('D:/khata-app/mobile/node_modules/expo-local-authentication/android')
+include ':expo-modules-core'
+project(':expo-modules-core').projectDir = new File('D:/khata-app/mobile/node_modules/expo/node_modules/expo-modules-core/android')
+include ':expo-print'
+project(':expo-print').projectDir = new File('D:/khata-app/mobile/node_modules/expo-print/android')
+include ':expo-router'
+project(':expo-router').projectDir = new File('D:/khata-app/mobile/node_modules/expo-router/android')
+include ':expo-secure-store'
+project(':expo-secure-store').projectDir = new File('D:/khata-app/mobile/node_modules/expo-secure-store/android')
+include ':expo-sharing'
+project(':expo-sharing').projectDir = new File('D:/khata-app/mobile/node_modules/expo-sharing/android')
+include ':expo-splash-screen'
+project(':expo-splash-screen').projectDir = new File('D:/khata-app/mobile/node_modules/expo-splash-screen/android')
+include ':expo-sqlite'
+project(':expo-sqlite').projectDir = new File('D:/khata-app/mobile/node_modules/expo-sqlite/android')
+include ':expo-status-bar'
+project(':expo-status-bar').projectDir = new File('D:/khata-app/mobile/node_modules/expo-status-bar/android')

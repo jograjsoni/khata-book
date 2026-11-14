@@ -1,0 +1,53 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext {
+        buildToolsVersion = findProperty('android.buildToolsVersion') ?: '35.0.0'
+        minSdkVersion = Integer.parseInt(findProperty('android.minSdkVersion') ?: '24')
+        compileSdkVersion = Integer.parseInt(findProperty('android.compileSdkVersion') ?: '35')
+        targetSdkVersion = Integer.parseInt(findProperty('android.targetSdkVersion') ?: '34')
+        kotlinVersion = findProperty('android.kotlinVersion') ?: '2.2.0'
+
+        ndkVersion = "26.1.10909125"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.gms:google-services:4.4.1'
+        classpath('com.android.tools.build:gradle')
+        classpath('com.facebook.react:react-native-gradle-plugin')
+        classpath('org.jetbrains.kotlin:kotlin-gradle-plugin')
+        classpath('expo.modules:expo-module-gradle-plugin')
+        classpath('expo.modules:expo-autolinking-plugin')
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"
+apply plugin: "expo-root-project"
+
+def autolinkingJson = ['node', '--no-warnings', '--eval', "require(require.resolve('expo-modules-autolinking', { paths: [require.resolve('expo/package.json')] }))(process.argv.slice(1))", 'resolve', '--json', '--platform', 'android'].execute(null, rootDir).text.trim()
+def configClass = Class.forName("expo.modules.plugin.configuration.ExpoAutolinkingConfig")
+def companionObj = configClass.getField("Companion").get(null)
+def decodeMethod = companionObj.class.getMethod("decodeFromString", String.class)
+def autolinkingConfig = decodeMethod.invoke(companionObj, autolinkingJson.toString())
+def projRoot = rootDir.getAbsoluteFile().getParentFile()
+gradle.extensions.create("expoGradle", expo.modules.plugin.ExpoGradleExtension, autolinkingConfig, new expo.modules.plugin.AutolinkingOptions(), projRoot)
+
+allprojects {
+    repositories {
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url(new File(['node', '--print', "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim(), '../android'))
+        }
+        maven {
+            // Android JSC is installed from npm
+            url(new File(['node', '--print', "require.resolve('jsc-android/package.json', { paths: [require.resolve('react-native/package.json')] })"].execute(null, rootDir).text.trim(), '../dist'))
+        }
+
+        google()
+        mavenCentral()
+        maven { url 'https://www.jitpack.io' }
+    }
+}
